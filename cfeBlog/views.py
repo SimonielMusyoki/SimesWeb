@@ -6,12 +6,14 @@ from django.http import HttpResponse
 #     return HttpResponse("<h1>Hello CFE Blog</h1>")
 
 def about(request):
-    title=" About Us"
-    return render(request, 'about.html', {"title":title})
+    context = {"title":"About Us"}
+    template_name = 'about.html'
+    return render(request, template_name, context)
 
 def contact(request):
-    title = " Contact Us"
-    return render(request, 'contact.html', {"title":title})
+    context = {"title":"Contact Us"}
+    template_name = 'contact.html'
+    return render(request, template_name, context)
 
 class HomeTemplateView(TemplateView):
     title = "Home"
