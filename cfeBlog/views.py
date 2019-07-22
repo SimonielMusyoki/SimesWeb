@@ -8,7 +8,7 @@ from .forms import ContactForm
 #     return HttpResponse("<h1>Hello CFE Blog</h1>")
 
 def about(request):
-    context = {"title":"About Us"}
+    context = {"title":"About SIMES"}
     template_name = 'about.html'
     return render(request, template_name, context)
 

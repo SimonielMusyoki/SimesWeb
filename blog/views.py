@@ -1,7 +1,7 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import BlogPost
-from .forms import BlogPostForm
+from .forms import BlogPostForm, BlogPostModelForm
 
 # Create your views here.
 def testView(request, slug):
@@ -42,10 +42,15 @@ def blog_post_update_view(request, slug):
 def blog_post_create_view(request):
     # Create objects
     # ? User forms
-    form = BlogPostForm(request.POST or None)
+    # form = BlogPostForm(request.POST or None)
+    form = BlogPostModelForm(request.POST or None)
     if form.is_valid():
-        print(form.cleaned_data)
-        form = BlogPostForm()
+        # print(form.cleaned_data)
+        # obj = BlogPost.objects.create(**form.cleaned_data)
+        # obj.save()
+        form.save()
+        return redirect('home')
+        
 
     template_name = "blog/create.html"
     context = {"form": form,"title":"Post Create"}
