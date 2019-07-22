@@ -12,6 +12,11 @@ def about(request):
     template_name = 'about.html'
     return render(request, template_name, context)
 
+def executives(request):
+    context = {"title":"SIMES Executives"}
+    template_name = 'executives.html'
+    return render(request, template_name, context)
+
 def contact(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
