@@ -23,4 +23,4 @@ def contact(request):
 
 class HomeTemplateView(TemplateView):
     title = "Home"
-    template_name="blog_post_list.html" 
+    template_name="blog/list.html" 
