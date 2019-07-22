@@ -49,7 +49,11 @@ def blog_post_detail_view(request, slug):
 def blog_post_update_view(request, slug):
     template_name = "blog/update.html"
     obj = get_object_or_404(BlogPost, slug=slug)
-    context = {"object": obj, "title":"Post Update"}
+    form = BlogPostModelForm(request.POST or None, instance=obj)
+    context = {"form": form, "title":f"{obj.title} Update"}
+    if form.is_valid():
+        form.save()
+        return redirect('home')
     return render(request, template_name, context)
 
 @login_required
@@ -75,4 +79,6 @@ def blog_post_delete_view(request,slug):
     template_name = "blog/delete.html"
     obj = get_object_or_404(BlogPost, slug=slug)
     context = {"object": obj, "title":"Post Delete"}
+    if request.method == "POST":
+        obj.delete()
     return render(request, template_name, context)
