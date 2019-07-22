@@ -29,6 +29,16 @@ def blog_post_list_view(request):
     return render(request, template_name, context)
 
 @login_required
+def user_post_list_view(request):
+    #  List out objects
+    # Search object
+    template_name = 'blog/user_posts.html'
+    qs2 = BlogPost.objects.filter(title__icontains='some_text')
+    qs = BlogPost.objects.filter(author=request.user)
+    context = {"object_list":qs}
+    return render(request, template_name, context)
+
+@login_required
 def blog_post_detail_view(request, slug):
     template_name = "blog/detail.html"
     obj = get_object_or_404(BlogPost, slug=slug)
