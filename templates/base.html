@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@
                       {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="#">Print </a>
                         <a class="nav-item nav-link" href="#">View Printers </a>
-                        <a class="nav-item nav-link" href="">Preferences </a>
+                        <a class="nav-item nav-link" href="">{{ user }} </a>
                         <a class="nav-item nav-link" href="#">Profile</a>
                         <a class="nav-item nav-link" href="#">Logout</a>
                       {% else %}

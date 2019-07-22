@@ -2,6 +2,8 @@ from django.views.generic import TemplateView
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import ContactForm
+
 # def home(request):
 #     return HttpResponse("<h1>Hello CFE Blog</h1>")
 
@@ -11,10 +13,14 @@ def about(request):
     return render(request, template_name, context)
 
 def contact(request):
-    context = {"title":"Contact Us"}
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+        form = ContactForm()
     template_name = 'contact.html'
+    context = {"title":"Contact Us", "form":form}
     return render(request, template_name, context)
 
 class HomeTemplateView(TemplateView):
     title = "Home"
-    template_name="home.html" 
+    template_name="blog_post_list.html" 
