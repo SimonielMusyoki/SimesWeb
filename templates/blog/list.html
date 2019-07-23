@@ -12,7 +12,7 @@
                     <small class="text-muted">{{ object.date_posted }}</small>
                   </div>
                   {% if object.image %}
-                    <img src="{{ object.image.url }}" class="card-img-top"/>
+                    <a href="{{ object.image.url }}"><img src="{{ object.image.url }}" class="card-img-top"/></a>
                   {% endif %}
                   <h2><a class="article-title" href="{{ object.slug }}/">{{ object.title }}</a></h2>
                   <p class="article-content">{{ object.content|linebreaks|truncatewords:30 }}<a href="{{ object.get_detail_url }}">Read More</a></p>
