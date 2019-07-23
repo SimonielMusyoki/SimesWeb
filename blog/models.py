@@ -12,3 +12,14 @@ class BlogPost(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
+    def get_absolute_url(self):
+        return f"blog/{self.slug}"
+
+    def get_update_url(self):
+        return f"{self.get_absolute_url}/update"
+    
+    def get_delete_url(self):
+        return f"{self.get_absolute_url}/delete"
+
+    def get_detail_url(self):
+        return f"blog/{self.slug}/"

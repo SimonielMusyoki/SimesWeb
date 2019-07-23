@@ -12,6 +12,10 @@
                 </div>
                 <h2><a class="article-title" href="#">{{ object.title }}</a></h2>
                 <p class="article-content">{{ object.content }}</p>
+                {% if request.user == object.author or user.is_staff %}
+                <a href="update/"><button class='btn btn-outline-info'>Update</button></a>
+                <a href="delete/"><button class='btn btn-outline-danger'>Delete</button></a>
+                {% endif %}
             </div>
         </article>
     </ul>
