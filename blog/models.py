@@ -14,6 +14,9 @@ class BlogPost(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['-date_posted','-updated','-timestamp']
+
     def get_absolute_url(self):
         return f"blog/{self.slug}"
 
