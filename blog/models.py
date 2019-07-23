@@ -7,6 +7,7 @@ User = settings.AUTH_USER_MODEL
 # Create your models here.
 class BlogPost(models.Model):
     title = models.CharField(max_length=120)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
     slug = models.SlugField(unique=True)
     content = models.TextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.now)
