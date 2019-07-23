@@ -12,7 +12,7 @@
                     <small class="text-muted">{{ object.date_posted }}</small>
                   </div>
                   <h2><a class="article-title" href="{{ object.slug }}/">{{ object.title }}</a></h2>
-                  <p class="article-content">{{ object.content }}</p>
+                  <p class="article-content">{{ object.content|linebreaks|truncatewords:30 }}<a href="{{ object.get_detail_url }}">Read More</a></p>
                 </div>
               </article>
         
