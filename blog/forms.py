@@ -9,7 +9,7 @@ class BlogPostForm(forms.Form):
 class BlogPostModelForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title','content','slug']
+        fields = ['title','image','content','slug']
     
     def clean_slug(self, *args, **kwargs):
         instance = self.instance
