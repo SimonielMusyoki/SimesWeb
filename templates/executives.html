@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     <h1>{{ title }}</h1>
     <article class="media content-section">
-        <img class="rounded-circle article-img" src="">
+        <img class="rounded-circle article-img" src="{% static 'img/essie.jpg'%}">
         <div class="media-body">
           <div class="article-metadata">
             <a class="mr-2" href="#">Esther Mbithe</a>
@@ -19,7 +19,7 @@
         </div>
       </article>
       <article class="media content-section">
-        <img class="rounded-circle article-img" src="">
+        <img class="rounded-circle article-img" src="{% static 'img/default.jpg'%}">
         <div class="media-body">
           <div class="article-metadata">
             <a class="mr-2" href="#">Simoniel Musyoki</a>
@@ -36,7 +36,7 @@
         </div>
       </article>
       <article class="media content-section">
-        <img class="rounded-circle article-img" src="">
+        <img class="rounded-circle article-img" src="{% static 'img/tal.jpg'%}">
         <div class="media-body">
           <div class="article-metadata">
             <a class="mr-2" href="#">Kiptalam</a>
