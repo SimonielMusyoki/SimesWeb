@@ -37,12 +37,11 @@ def profile(request):
 
 
 def profileUpdate(request):
-    form = ProfileUpdate(request.POST or None)
+    form = ProfileUpdate(request.POST or None, request.FILES or None)
     if form.is_valid():
-        # obj = Profile.objects.get(form.cleaned_data)
-        # obj.save()
-        print(form.cleaned_data)
-        return ProfileUpdate()
+        obj = Profile.objects.create(**form.cleaned_data)
+        obj.save()
+        return redirect('home')
     template_name = "users/profile2.html"
     context = {"form":form, "title":"Update Profile"}
     return render(request,template_name,context)
