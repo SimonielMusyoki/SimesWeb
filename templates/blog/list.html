@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>SIMES HOME</h1>
     <ul>
         {% for object in object_list %}
             <article class="media content-section">
-                <img class="rounded-circle article-img" src="">
+                <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
                 <div class="media-body">
                   <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ object.author }}</a>
+                    <a class="mr-2" href="{% url 'profile' %}">{{ object.author }}</a>
                     <small class="text-muted">{{ object.date_posted }}</small>
                   </div>
                   {% if object.image %}
