@@ -20,15 +20,9 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = '__all__'
 
-class ProfileUpdate(forms.Form):
-    image = forms.ImageField()
-    username = forms.CharField()
-    position = forms.CharField()
-    technologies = forms.CharField()
-    github = forms.URLField()
-    facebook = forms.URLField()
-    twitter = forms.URLField()
-    linkedin = forms.URLField()
-    bitbucket = forms.URLField()
+# class ProfileUpdate(forms.ModelForm):
+#     class Meta:
+#         model = UserProfile
+#         fields = "__all__"
